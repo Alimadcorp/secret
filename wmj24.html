@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>finally</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        #code {
+            font-size: 3em;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <p>Send the following code to <strong>alimad.co.ltd@gmail.com</strong> or <strong>Mr Bruh#9871</strong> on Discord to get your true reward. I know what you're wondering. Yup. That's the end. I can't add more after this. Thank you for playing my game and thank you for spotting such a small detail. Goodbye - Alimad Co</p>
+        <div id="code"></div>
+    </div>
+
+    <script>
+        function getOrGenerateCode() {
+            const storedCode = localStorage.getItem("rewardCode");
+            if (storedCode) return storedCode;
+            const newCode = Math.floor(100000 + Math.random() * 900000).toString();
+            localStorage.setItem("rewardCode", newCode);
+            return newCode;
+        }
+        document.getElementById("code").textContent = getOrGenerateCode();
+    </script>
+</body>
+</html>
