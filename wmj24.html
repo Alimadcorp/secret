@@ -21,15 +21,29 @@
             margin-top: 20px;
             font-weight: bold;
         }
+        .aa, .bb{
+            animation: getin 2s ease;
+        }
+        @keyframes getin{
+            0%{color:#000;}
+            10%{color:#fff;}
+            100%{color:#fff;}
+        }
     </style>
 </head>
 <body>
-    <div>
+    <div class="aa">
+        <p>Thank you for playing Please Suggest A Name</p>
+    </div>
+    <div class="bb" style="display:none;" id="baba">
         <p>Send the following code to <strong>alimad.co.ltd@gmail.com</strong> or <strong>Mr Bruh#9871</strong> on Discord to get your reward. Thank you for playing our game. Goodbye - Alimad Co</p>
         <div id="code"></div>
     </div>
 
     <script>
+        function showi(){
+            document.getElementById("baba").style.display = "inline";
+        }
         function getOrGenerateCode() {
             const storedCode = localStorage.getItem("rewardCode");
             if (storedCode) return storedCode;
@@ -37,6 +51,7 @@
             localStorage.setItem("rewardCode", newCode);
             return newCode;
         }
+        setTimeout(showi, 3000);
         document.getElementById("code").textContent = getOrGenerateCode();
     </script>
 </body>
